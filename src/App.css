@@ -1,0 +1,634 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Mulish", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.App {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  min-width: 200px;
+}
+
+html,
+body {
+  min-width: 600px;
+}
+
+/* SIDEBAR */
+
+.Sidebar {
+  width: 200px;
+  min-width: 200px;
+  height: 100%;
+}
+
+/* MAIN */
+
+.Main {
+  width: 100%;
+  height: 100%;
+  background-color: aquamarine;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 200px;
+  position: relative;
+}
+
+/* USER */
+
+.User {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.7rem;
+  border: 1px solid rgb(230, 230, 230);
+}
+
+.User a {
+  text-decoration: none;
+  color: gray;
+}
+
+.User a:hover {
+  color: black;
+}
+
+.icon {
+}
+
+.logo {
+  margin-right: 1rem;
+}
+
+.User .logo img {
+  border-radius: 50%;
+  border: 0.3px solid black;
+  height: 40px;
+}
+
+.User .info p {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.User .info {
+  text-align: right;
+}
+
+.User .info a {
+  text-decoration: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* + TODO */
+
+.AddTodo {
+  border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.AddTodo .btn {
+  padding: 1rem;
+  width: 100%;
+  height: 70px;
+}
+
+.AddTodo .btn button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 3px;
+  font-size: 1rem;
+  background-color: #0080ff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.AddTodo .btn button:hover {
+  transition: all 0.1s ease;
+  filter: brightness(0.9);
+}
+
+/* TODO MODAL */
+
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgb(0, 0, 0, 0.55);
+  z-index: 10;
+}
+
+.Modal .container {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  display: flex;
+}
+
+.TodoForm {
+  padding: 1rem 1rem calc(1rem + 40px) 1rem;
+  width: fit-content;
+  background: white;
+  border-radius: 5px;
+}
+
+.TodoForm .text input {
+  padding: 1rem;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  border: none;
+  border-bottom: 1px solid rgb(85, 85, 85);
+  font-size: 1.2rem;
+}
+
+.TodoForm .text input:hover {
+  border-bottom: 1px solid black;
+}
+
+.TodoForm .text input:focus {
+  outline: none;
+  border-bottom: 1px solid blue;
+}
+
+.TodoForm .remind {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.TodoForm p {
+  margin-left: 10px;
+}
+
+.TodoForm .title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.TodoForm .pick-day {
+  padding: 1.5rem 1.5rem 0 1.5rem;
+}
+
+.TodoForm .pick-time {
+  padding: 1.5rem;
+}
+
+.TodoForm .pick-list {
+  padding: 0.5rem;
+}
+
+.TodoForm .pick-list .lists {
+  display: flex;
+  padding: 1rem 1rem 01rem;
+  flex-wrap: wrap;
+}
+
+.TodoForm .pick-list .lists .list {
+  border: 0.9px solid rgb(185, 185, 185);
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.TodoForm .pick-list .lists .list .active {
+  background-color: blue;
+  color: white;
+}
+
+.TodoForm .pick-list .lists .list:hover {
+  background-color: blue;
+  filter: brightness(1.1);
+  color: white;
+  border-color: white;
+}
+
+.TodoForm .cancel {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem;
+}
+
+.bi-x {
+  width: 32px;
+  height: 32px;
+  display: flex;
+}
+
+.AddTodo form .cancel:hover {
+  background: rgb(230, 230, 230);
+
+  border-radius: 50%;
+}
+
+.AddTodo form .confirm {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.AddTodo form .confirm button {
+  width: 100%;
+  height: 40px;
+  background: blue;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 0 0 4px 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.AddTodo form .confirm button:hover {
+  filter: brightness(0.9);
+}
+
+/* Upcoming */
+
+.Calendar {
+  padding: 1rem;
+  border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.Calendar .header {
+  display: flex;
+  align-items: center;
+}
+
+.Calendar .header .title {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  cursor: default;
+}
+
+.Calendar .header .title p {
+  font-size: 0.9rem;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.Calendar .header .btns span {
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.Calendar .header .btns {
+  display: flex;
+  align-items: center;
+}
+
+.bi-caret-up {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.bi-caret-up:hover {
+  background-color: rgb(230, 230, 230);
+  transition: all 0.1s ease-in-out;
+}
+
+.Calendar .items {
+  padding: 0.5rem;
+}
+
+.Calendar .items .item {
+  padding: 0.25rem;
+  margin: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.Calendar .items .item:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+/* To Do Lists */
+
+.Lists {
+  padding: 1rem;
+  border-bottom: 1px solid rgb(230, 230, 230);
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: fit-content;
+}
+
+.Lists .header {
+  display: flex;
+  align-items: center;
+}
+
+.Lists .header .title {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  cursor: default;
+}
+
+.Lists .header .title p {
+  font-size: 0.9rem;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.Lists .header .btns {
+  display: flex;
+  align-items: center;
+}
+
+.Lists .header .btns span {
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.bi-pencil,
+.bi-pencil-fill,
+.bi-plus {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.bi-pencil:hover,
+.bi-pencil-fill:hover,
+.bi-plus:hover,
+.bi-x-circle:hover {
+  background-color: rgb(230, 230, 230);
+  transition: all 0.1s ease-in-out;
+}
+
+.bi-pencil,
+.bi-pencil-fill {
+  scale: 0.75;
+}
+
+.Lists .btns {
+  gap: 0.2rem;
+}
+
+.Lists .items {
+  padding: 0.5rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: absolute;
+  bottom: 0;
+  top: 400px;
+  width: 170px;
+}
+
+.List {
+  display: flex;
+  align-items: center;
+  padding: 0.25rem;
+  margin: 5px;
+  font-size: 1rem;
+  justify-content: space-between;
+  text-align: left;
+  width: 100%;
+  padding-right: 10px;
+}
+
+.List .name {
+  cursor: pointer;
+  word-break: break-all;
+}
+
+.List .btns {
+  display: flex;
+  align-items: center;
+  width: 25px;
+}
+
+.List .btns .total-todos {
+  position: relative;
+  left: 10px;
+  background: rgb(230, 230, 230);
+  width: 25px;
+  height: 25px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.List .btns .edit-delete {
+  position: absolute;
+  left: 150px;
+  display: flex;
+}
+
+.bi-x-circle {
+  scale: 0.75;
+  display: flex;
+  margin-left: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.bi-x-circle:hover {
+  background-color: #ffacac68;
+}
+
+/* Add List */
+
+.AddList .add-button {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+/* List Form */
+
+.ListForm {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  position: relative;
+  padding-bottom: 40px;
+}
+
+.ListForm h3 {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.ListForm input {
+  width: 100%;
+  height: 40px;
+  border: none;
+  font-size: 1.5rem;
+  margin: 15px 0;
+  border-bottom: 1px solid rgb(85, 85, 85);
+}
+
+.ListForm input {
+  font-size: 1rem;
+}
+
+.ListForm input:hover {
+  border-bottom: 1px solid black;
+}
+
+.ListForm input:focus {
+  outline: none;
+  border-bottom: 1px solid blue;
+}
+
+.ListForm button {
+  position: absolute;
+  bottom: 0;
+  height: 40px;
+  width: 50%;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.ListForm button.cancel {
+  left: 0;
+  border-radius: 0 0 0 5px;
+  filter: brightness(0.9);
+}
+
+.ListForm button.confirm {
+  right: 0;
+  background-color: blue;
+  color: white;
+  border-radius: 0 0 5px 0;
+}
+
+.ListForm button.confirm:hover {
+  filter: brightness(0.9);
+}
+.ListForm button.cancel:hover {
+  filter: brightness(0.8);
+}
+
+/* Todos */
+
+.Todos {
+  width: 450px;
+  height: 75%;
+  background-color: white;
+  position: absolute;
+  bottom: 10vh;
+  left: 40px;
+  top: 20vh;
+  opacity: 0.9;
+
+  border-radius: 5px;
+  opacity: 0.9;
+
+  padding: 0 0.5rem 0.5rem 0.5rem;
+}
+
+.Todos .selected-list {
+  margin: 1rem 0;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgb(230, 230, 230);
+  cursor: default;
+}
+
+.Todos .todos {
+  position: relative;
+  overflow-y: auto;
+  height: calc(100% - 55px);
+}
+
+/* Todo */
+
+.Todo .todo-container .text {
+  position: relative;
+}
+
+.Todo .todo-container .text .line {
+  height: 1.5px;
+  background: rgb(165, 165, 165);
+  position: absolute;
+  top: 25%;
+  width: 0;
+  transition: width 0.25s ease-in-out;
+}
+
+.Todo .todo-container .text .line-through {
+  width: 100%;
+}
+
+.Todo {
+  padding: 0.5rem 1rem;
+}
+
+.Todo .todo-container {
+  display: flex;
+  align-items: center;
+}
+
+.Todo .todo-container span {
+  cursor: pointer;
+}
+
+.Todo .todo-container .text {
+  flex: 1;
+  position: relative;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.Todo .todo-container .text span {
+  font-size: 0.8rem;
+  color: rgb(165, 165, 165);
+}
+
+.EditTodo {
+  position: absolute;
+  bottom: 10vh;
+  top: 20vh;
+  left: 540px;
+  background-color: white;
+  height: 75%;
+  border-radius: 5px;
+  width: 450px;
+  opacity: 0.9;
+}
+
+.EditTodo .header {
+    margin: 1rem 0.5rem;
+    font-size: 1.2rem;
+    padding-bottom: 2px;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    font-weight: bold;
+}
