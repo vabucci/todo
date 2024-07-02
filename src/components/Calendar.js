@@ -8,14 +8,10 @@ function Calendar(){
         <div className='Calendar'>
             <div className='header'>
                 <div className='title'>
-                <i class="bi bi-calendar-check"></i>
+                <i className="bi bi-calendar-check"></i>
                 <p>Upcoming</p>
                 </div>
-                <div className='btns'>
-                    <span>
-                    <i class="bi bi-caret-up"></i>
-                    </span>
-                </div>
+                
             </div>
             <div className='items'>
                 {

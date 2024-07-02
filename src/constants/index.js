@@ -1,1 +1,1 @@
-export const calendarItems = ['Today', 'Week', 'Month', 'All']
+export const calendarItems = ['Today', 'Week', 'All']

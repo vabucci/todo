@@ -18,6 +18,7 @@ function TodoForm({
   setDay,
   time,
   setTime,
+  todoList, setTodoList,
   lists,
   showButtons = false,
   setShowModal = false,
@@ -36,44 +37,55 @@ function TodoForm({
           />
         </div>
         <div className="remind">
-          <i class="bi bi-bell"></i>
+          <i className="bi bi-bell"></i>
           <p>Remind Me</p>
         </div>
         <div className="pick-day">
           <div className="title">
-            <i class="bi bi-calendar-check"></i>
+            <i className="bi bi-calendar-check"></i>
             <p>Choose Day</p>
           </div>
-          <DatePicker value={day} onChange={(day) => setDay(day)} />
+          <DatePicker value={day || null} onChange={(day) => setDay(day)} />
         </div>
         <div className="pick-time">
           <div className="title">
-            <i class="bi bi-clock"></i>
+            <i className="bi bi-clock"></i>
             <p>Choose Time</p>
           </div>
           <TimePicker value={time} onChange={(time) => setTime(time)} />
         </div>
         <div className="pick-list">
           <div className="title">
-            <i class="bi bi-card-checklist"></i>
+            <i className="bi bi-card-checklist"></i>
             <p>Choose List</p>
           </div>
           <div className="lists">
-            {lists.map((list) => (
-              <div className="list" key={list.id}>
-                {list.name}
+            {
+              lists.length > 0 ?
+              lists.map((list) => 
+                <div 
+                className={`list ${todoList === list.name ? 'active' : ''}`}
+                key={list.id}
+                onClick={() => setTodoList(list.name)}
+                >
+                  {list.name}
+                </div>
+              )
+              :
+              <div style={{color : '#ff0000'}}>
+                Please Create A To Do List
               </div>
-            ))}
+            }
           </div>
         </div>
         {/*  */}
         {showButtons && (
           <div>
             <div className="cancel" onClick={() => setShowModal(false)}>
-              <i class="bi bi-x" style={{ fontSize: "2rem" }}></i>
+              <i className="bi bi-x" style={{ fontSize: "2rem" }}></i>
             </div>
             <div className="confirm">
-              <button>+ To Do</button>
+              <button className="conf">+ To Do</button>
             </div>
           </div>
         )}
